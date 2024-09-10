@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fecth() 데이터받아오기</title>
+  </head>
+  <body>
+    <div id="display">
+      <!-- js출력 data.json -->
+    </div>
+
+    <script>
+      const url = "data.json";
+      fetch(url)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("네트워트 응답이 올바르지 않습니다.");
+          }
+          // console.log(response);
+          return response.json();
+        })
+        .then((data) => {
+          // 가져온 데이터 출력
+          // console.log(`json데이터: ${JSON.stringify(data)} `);
+          // console.log("json데이터:", data);
+          const displayEle = document.querySelector("#display");
+          displayEle.innerHTML = `
+          <p>이름 :${data.name}  </p>
+          <p>나이 :${data.age} </p>
+          <p>도시 :${data.city} </p>
+        `;
+        })
+        .catch((error) => {
+          // 오류처리
+          console.error("네트워크 요청에 문제가 있습니다.", error);
+        });
+    </script>
+  </body>
+</html>
