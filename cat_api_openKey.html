@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cat api</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      #catList {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 1100px;
+        background-color: antiquewhite;
+        margin: 0 auto;
+      }
+
+      .cat {
+        width: 200px;
+        /* margin-bottom: 20px; */
+        height: 200px;
+        object-fit: cover;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>고양이 목록</h1>
+    <div id="catList">
+      <!-- js출력 -->
+    </div>
+    <script>
+      const headers = new Headers({
+        "Content-Type": "application/json",
+        "x-api-key": "live_FXfqtASNEFbPgdarlUVati1KFCjO9hlelOm7TisNxlp2Rfk6y1k4Yl20qYQJ0A89",
+      });
+
+      var requestOptions = {
+        method: "GET",
+        headers: headers,
+        redirect: "follow",
+      };
+
+      fetch("https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=20", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result)}
+        )
+        .catch((error) => console.log("error", error));
+    </script>
+  </body>
+</html>

@@ -97,37 +97,35 @@
                 <h2>${card.description}</h2>
                 <p>가격 : ${card.price}</p>
               `;
-              cardList.appendChild(cardItem)
+              cardList.appendChild(cardItem);
             });
-            cardContainer.appendChild(cardList)
+            cardContainer.appendChild(cardList);
           });
           // 메뉴 아이템을 클릭 이벤트 추가
-          const menuItem = document.querySelectorAll(".menu-item")
-          menuItem.forEach((menuItem,index)=>{
+          const menuItem = document.querySelectorAll(".menu-item");
+          menuItem.forEach((menuItem, index) => {
             // console.log(menuItem);
-            menuItem.addEventListener("click" , function(){
-              showCard(index)
+            menuItem.addEventListener("click", function () {
+              showCard(index);
               // console.log(index);
-              
-            })
-            
-          })
+            });
+          });
           // 보여지는 함수
-          function showCard(index){
+          function showCard(index) {
             // console.log(index);
-            const cards = document.querySelectorAll(".card")
-            const menuItems = document.querySelectorAll(".menu-item")
-            cards.forEach((card , i)=>{
+            const cards = document.querySelectorAll(".card");
+            const menuItems = document.querySelectorAll(".menu-item");
+            cards.forEach((card, i) => {
               // console.log(card, i);
 
-              card.classList.toggle("active" , i === index)
-            })
-            menuItems.forEach((menuItem , i)=>{
+              card.classList.toggle("active", i === index);
+            });
+            menuItems.forEach((menuItem, i) => {
               // log(menuItem , i)
-              menuItem.classList.toggle("active",i === index)
-            })
+              menuItem.classList.toggle("active", i === index);
+            });
           }
-          showCard(0)
+          showCard(0);
         })
         .catch((error) => {
           console.error("error:", error);

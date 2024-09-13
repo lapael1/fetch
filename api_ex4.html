@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API 데이터 활용 예제</title>
+    <style></style>
+  </head>
+  <body>
+    <button id="loadImgBt">이미지 로드</button>
+    <div id="imgContainer">
+      <!-- js출력 -->
+       
+    </div>
+    <script>
+      const loadImgBt = document.getElementById("loadImgBt");
+      const imgContainer = document.getElementById("imgContainer");
+      loadImgBt.addEventListener("click", function () {
+        fetch("https://jsonplaceholder.typicode.com/photos?_limit=5")
+          .then((response) => response.json())
+          .then((data) => {
+            // console.log(data);
+            data.forEach((photo) => {
+              console.log(photo);
+              const photoEle = document.createElement("div");
+              photoEle.classList.add("photo");
+              console.log(photoEle);
+              photoEle.setAttribute("data-id" , photo.id)
+              photoEle.innerHTML =`
+              <h2>id : ${photo.id}</h2>
+              <h3>title :  ${photo.title}</h3>
+              <img src="${photo.url}" alt="${photo.title}">
+              <img src="${photo.thumbnailUrl}" alt="${photo.title}">
+              `
+              imgContainer.appendChild(photoEle)
+            });
+          })
+          .catch((error) => {
+            console.error("error:", error);
+          });
+      });
+    </script>
+  </body>
+</html>
