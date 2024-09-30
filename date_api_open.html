@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>시간 날씨 api</title>
     <style></style>
-    <script src="weather.js"></script>
+    <script src="js/weather.js"></script>
   </head>
   <body>
     <h2 class="city">
       <!-- js 출력 도시이름 -->
     </h2>
     <section id="today">
+      <!-- 날씨 -->
       <div class="today-icon">
         <!-- js출력 -->
       </div>
@@ -23,6 +24,9 @@
           <p><strong>위도:</strong> <span id="latitude"></span></p>
           <p><strong>Date & Time:</strong> <span id="datetime"></span></p>
           <p><strong>City ID:</strong> <span id="city-id"></span></p>
+          <p><strong>Clouds:</strong> <span id="city-clouds"></span><span>%</span></p>
+          <p><strong>WInd:</strong> <span id="city-wind"></span><span>km/h</span></p>
+          
         </div>
       </div>
     </section>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cat api</title>
     <style>
-       h1 {
+        h1 {
         text-align: center;
       }
       #catList {
@@ -19,36 +19,36 @@
 
       .cat {
         width: 200px;
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
         height: 200px;
         object-fit: cover;
-      }  
+        display: block;
+      } 
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>고양이 목록</h1>
     <div id="catList">
-        <!-- js출력 -->
-         
+      <!-- js출력 -->
     </div>
     <script>
-        const catList = document.getElementById("catList")
-        fetch("https://api.thecatapi.com/v1/images/search?limit=10")
+      const catList = document.getElementById("catList");
+      fetch("https://api.thecatapi.com/v1/images/search?limit=10")
         .then((response) => response.json())
         .then((catImages) => {
-            // console.log(catImages);
-            catImages.forEach((catimg) => {
-                // console.log(catimg);
-                catList.innerHTML += `
-                <div class="cat-card">
-            <img src="${catimg.url}" alt="${catimg.id}" class="cat">
-            
-         </div>
-                `
-                
-            })
+          // console.log(catImages);
+          catImages.forEach((catimg) => {
+            // console.log(catimg);
+            catList.innerHTML += `
+              <div class="cat-card">
+                <h2>${catimg.id}</h2>
+                <img src="${catimg.url}" alt="${catimg.id}" class="cat">
+                <span>width : ${catimg.width} </span><span> height :${catimg.height} </span>
+              </div>
+            `;
+          });
         })
         .catch((error) => console.log("error", error));
     </script>
-</body>
+  </body>
 </html>

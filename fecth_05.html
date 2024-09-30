@@ -69,20 +69,20 @@
                 <h2>${item.title}</h2>
                 <p>${item.description}</p>
               </div>
-            `
-            itemsContainer.appendChild(itemElement)
-            itemElement.addEventListener("click",function(){
+            `;
+            itemsContainer.appendChild(itemElement);
+            itemElement.addEventListener("click", function () {
               // console.log("확인");
-              // alert("확인") 적용된 건지 확인 하는 방법들
+              // alert("확인")
               // console.log(this);
-              
-              const detail = this.querySelector(".detail")
-              // console.log(detail);
-              if(this.classList.contains("active")){
-                this.classList.remove("active")
-                detail.style.display = "none"
-              }else{
-                // 다른 아이템들의 detail 닫기
+
+              const detail = this.querySelector(".detail");
+              //  console.log(detail);
+              if (this.classList.contains("active")) {
+                this.classList.remove("active");
+                detail.style.display = "none";
+              } else {
+                // 다른 아이템들의 detail닫기
                 document.querySelectorAll(".detail").forEach((detail) =>{
                   detail.style.display = "none"
                 })
@@ -90,16 +90,12 @@
                 document.querySelectorAll(".item").forEach((item)=>{
                   item.classList.remove("active")
                 })
-                this.classList.add("active")
-              // console.log(this);
-              detail.style.display = "block"
+                this.classList.add("active");
+                //  console.log(this);
+                detail.style.display = "block";
               }
-             
-              
-              
-            })
+            });
           });
-
         })
         .catch((error) => {
           console.error("Error:", error);

@@ -83,6 +83,7 @@
           return response.json();
         })
         .then((cardData) => {
+          
           // console.log(cardData);
           cardData.forEach((menu, index) => {
             // console.log(menu );
@@ -113,19 +114,19 @@
           // 보여지는 함수
           function showCard(index) {
             // console.log(index);
-            const cards = document.querySelectorAll(".card");
-            const menuItems = document.querySelectorAll(".menu-item");
-            cards.forEach((card, i) => {
+            const cards = document.querySelectorAll(".card")
+            const menuItems = document.querySelectorAll(".menu-item")
+            cards.forEach((card ,i )=>{
               // console.log(card, i);
-
-              card.classList.toggle("active", i === index);
-            });
-            menuItems.forEach((menuItem, i) => {
-              // log(menuItem , i)
-              menuItem.classList.toggle("active", i === index);
-            });
+              card.classList.toggle("active" , i === index )
+              
+            })
+            menuItems.forEach((menuItem , i)=>{
+              // console.log(menuItem , i);
+              menuItem.classList.toggle("active" , i === index)
+            })
           }
-          showCard(0);
+          showCard(0)
         })
         .catch((error) => {
           console.error("error:", error);
